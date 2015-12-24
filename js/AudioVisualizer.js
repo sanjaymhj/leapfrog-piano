@@ -7,10 +7,10 @@ function AudioVisualizer() {
   this.updateVisuals = function(state, keyCode){
     if (!ctx){
     var canvas = document.getElementById('analyser');
-    console.log(canvas);
+    // console.log(canvas);
     canvasWidth = canvas.width;
     canvasHeight = canvas.height;
-    console.log(canvasHeight,canvasWidth,'height-width');
+    // console.log(canvasHeight,canvasWidth,'height-width');
     var ctx = canvas.getContext('2d');
   }
 
@@ -22,7 +22,7 @@ function AudioVisualizer() {
 
     // var fillColor = getRandomColor();
     for(j = 0; j<Object.keys(freqData).length; j++){
-      console.log(freqData[j].freqValue);
+      // console.log(freqData[j].freqValue);
       if(j%2 == 0){
         ctx.beginPath();
         ctx.moveTo(j*spacing,canvasHeight);
@@ -56,7 +56,7 @@ function AudioVisualizer() {
 
     }
 
-  },10);
+  },40);
   } 
     
 

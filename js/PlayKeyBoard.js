@@ -12,6 +12,17 @@ function PlayKeyBoard() {
   var playButton = document.getElementById("play");
   var visu = new AudioVisualizer();
 
+  this.init = function() {
+  try {
+    // Fix up for prefixing
+    window.AudioContext = window.AudioContext||window.webkitAudioContext;
+    context = new AudioContext();
+  }
+  catch(e) {
+    alert('Web Audio API is not supported in this browser');
+  }
+}
+
   var audioContext = new (AudioContext || webkitAudioContext)();
   that = this;
 
@@ -94,11 +105,13 @@ function PlayKeyBoard() {
 
   this.playRecorded = function(){
     // playing = 0;
+    console.log(recordedSong[playing]);
     recordedSong[playing].key.sound.play();
-
+    
     setTimeout(function(){
       recordedSong[playing].key.sound.stop();
       playing++;
+      if(recordedSong.length != playing)
       that.playRecorded();
     }, recordedSong[playing].time);
       

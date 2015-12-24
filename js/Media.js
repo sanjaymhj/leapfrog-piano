@@ -23,7 +23,16 @@ Media.prototype.play = function() {
 
   if(!this.pressed) {
     this.pressed = true;
-    this.osc.connect(this.context.destination); 
+    var attack = 500,
+    decay = 1500,
+    gain = this.context.createGain();
+ 
+    gain.connect(this.context.destination);
+    gain.gain.setValueAtTime(0, this.context.currentTime);
+    gain.gain.linearRampToValueAtTime(1, this.context.currentTime + attack / 1000);
+    gain.gain.linearRampToValueAtTime(0, this.context.currentTime + decay / 1000);
+    this.osc.connect(gain);
+    // this.osc.connect(this.context.destination); 
 
   }
 }
