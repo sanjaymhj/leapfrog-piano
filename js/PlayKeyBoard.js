@@ -1,15 +1,15 @@
 function PlayKeyBoard() {
   // Create audio (context) container
   var counter = 0;
-  var newKey = new CreateKeyBoard();
+  var newKey = new CreateKeys();
   var visu = new AudioVisualizer();
   var playing;
   var state;
   var recorder = new Recorder();
   var recordFlag = false;
   var recordCounter = 0;
-  var recordButton = document.getElementById("rec");
-  var playButton = document.getElementById("play");
+  var recordButton = document.getElementById("startRecording");
+  var playButton = document.getElementById("playRecorded");
   var visu = new AudioVisualizer();
 
   this.init = function() {
@@ -28,9 +28,9 @@ function PlayKeyBoard() {
 
 
   for(var i = 0; i<Object.keys(noteList).length; i++){
-  // console.log(noteList[i].name);
+  console.log(Object.keys(noteList).length,'length');
 
-      newKey.createKey(noteList[i].name,noteList[i].notePitch);
+      newKey.createNewKeys(noteList[i].name,noteList[i].notePitch, i);
 
   }
 
@@ -75,7 +75,10 @@ function PlayKeyBoard() {
 
   this.endNote = function(event) {
     var keyCode = event.keyCode;
-    notesByKeyCode[keyCode].key.sound.stop();
+    setTimeout(function(){
+     notesByKeyCode[keyCode].key.sound.stop();
+
+    },20);
     newKey.inActiveKey(notesByKeyCode[keyCode].noteName);
     notesByKeyCode[keyCode].counter = 0;
 
@@ -130,7 +133,7 @@ function PlayKeyBoard() {
     else if(recordCounter == 0){
       console.log(recordCounter,'bhitra');
       that.filterRecordedMusic();
-      playButton.innerHTML = "playing..."
+      playButton.className = 'record pause';
     }
 
   });
@@ -139,13 +142,13 @@ function PlayKeyBoard() {
   recordButton.addEventListener("click",function(){
     if(recordCounter == 0){
       recordFlag = true;
-      recordButton.innerHTML = "Recording...";
+      recordButton.className = 'record active';
       recordCounter++;
     }
 
     else{
       recordFlag = false;
-      recordButton.innerHTML = "Record";
+      recordButton.className = 'record in-active';
       recordCounter = 0;
     }
    
