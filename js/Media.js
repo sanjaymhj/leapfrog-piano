@@ -24,8 +24,8 @@ Media.prototype.play = function() {
   if(!this.pressed) {
     this.pressed = true;
     var attack = 10,
-    gainValue = 10000;
-    decay = 2000,
+    // gainValue = 10000;
+    decay = 3000,
     gainNode = this.context.createGain ? this.context.createGain() : this.context.createGainNode();
 
     this.osc.connect(gainNode);
@@ -36,7 +36,7 @@ Media.prototype.play = function() {
     gainNode.gain.linearRampToValueAtTime(0, this.context.currentTime + decay / 1000);
     
     // this.osc.connect(gain);
-    gainNode.gain.value = gainValue;  
+    // gainNode.gain.value = gainValue;  
 
   }
 }

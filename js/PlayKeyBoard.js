@@ -2,7 +2,6 @@ function PlayKeyBoard() {
   // Create audio (context) container
   var counter = 0;
   var newKey = new CreateKeys();
-  var visu = new AudioVisualizer();
   var playing;
   var state;
   var recorder = new Recorder();
@@ -10,8 +9,10 @@ function PlayKeyBoard() {
   var recordCounter = 0;
   var recordButton = document.getElementById("startRecording");
   var playButton = document.getElementById("playRecorded");
-  var visu = new AudioVisualizer();
-
+  var visual = new AudioVisualizer();
+  var bgAudio = new AudioInBackground();
+  var timer = null;
+  var drum = false;
   this.init = function() {
   try {
     // Fix up for prefixing
@@ -28,7 +29,7 @@ function PlayKeyBoard() {
 
 
   for(var i = 0; i<Object.keys(noteList).length; i++){
-  console.log(Object.keys(noteList).length,'length');
+  // console.log(Object.keys(noteList).length,'length');
 
       newKey.createNewKeys(noteList[i].name,noteList[i].notePitch, i);
 
@@ -57,8 +58,20 @@ function PlayKeyBoard() {
   }
 
   this.playNote = function(event) {
+    console.log(timer,'timer');
+
+    // if(timer != null){
+      // clearTimeout(timer);
+      // notesByKeyCode[keyCode].key.sound.stop();
+
+    // }
+// 
+      // notesByKeyCode[keyCode].key.sound.stop();
+
+
     var keyCode = event.keyCode;
-     console.log(keyCode);
+
+    console.log(keyCode);
     
     notesByKeyCode[keyCode].key.sound.play();
     if(notesByKeyCode[keyCode].counter == 0){
@@ -66,7 +79,7 @@ function PlayKeyBoard() {
       notesByKeyCode[keyCode].counter = 1;
     }
     
-    visu.updateVisuals('down',keyCode);
+    visual.updateVisuals('down',keyCode);
 
     if(recordFlag)
       recorder.record(keyCode,event.timeStamp,'down');
@@ -75,20 +88,23 @@ function PlayKeyBoard() {
 
   this.endNote = function(event) {
     var keyCode = event.keyCode;
-    setTimeout(function(){
-     notesByKeyCode[keyCode].key.sound.stop();
+    timer = setTimeout(function(){
+    notesByKeyCode[keyCode].key.sound.stop();
 
     },20);
+    
     newKey.inActiveKey(notesByKeyCode[keyCode].noteName);
     notesByKeyCode[keyCode].counter = 0;
 
     state = true;
-    visu.updateVisuals(state, keyCode);
+    visual.updateVisuals(state, keyCode);
 
     if (recordFlag)
       recorder.record(keyCode,event.timeStamp,'up');
 
-    visu.updateVisuals('up', keyCode);
+    visual.updateVisuals('up', keyCode);
+    keyPressed = 0;
+
 
 
   };
@@ -127,7 +143,7 @@ function PlayKeyBoard() {
   playButton.addEventListener("click",function(){
     console.log(recordCounter);
     if(recordedSong.length == 0){
-      playButton.innerHTML = "First Record";
+      window.alert("Please Record Audio First");
     }
 
     else if(recordCounter == 0){
@@ -152,6 +168,65 @@ function PlayKeyBoard() {
       recordCounter = 0;
     }
    
+  });
+
+
+  drum1.addEventListener("click",function(){
+    if(!drum){
+      drum1.className = 'drum active';
+      bgAudio.loadAudio('music/wipeout161.mp3');
+      bgAudio.playAudio();
+      drum = true;
+    }
+
+    else{
+      drum1.className = 'drum';
+      bgAudio.pauseAudio();
+      drum = false;
+    }
+    
+  });
+
+  drum2.addEventListener("click",function(){
+    if(!drum){
+      drum2.className = 'drum active';
+      bgAudio.loadAudio('music/wipeout161.mp3');
+      bgAudio.playAudio();
+      drum = true;
+    }
+
+    else{
+      drum2.className = 'drum';
+      bgAudio.pauseAudio();
+      drum = false;
+    }
+
+  });
+
+  drum3.addEventListener("click",function(){
+    if(!drum){
+      drum3.className = 'drum active';
+      bgAudio.loadAudio('music/wipeout161.mp3');
+      bgAudio.playAudio();
+      drum = true;
+    }
+
+    else{
+      drum3.className = 'drum';
+      bgAudio.pauseAudio();
+      drum = false;
+    }
+  });
+
+  volume.addEventListener("change",function(){
+   bgAudio.volumeController(document.getElementById('volume').value);
+
+  });
+
+  volume.addEventListener("mousewheel",function(){
+    console.log(laxman);
+   bgAudio.volumeController(document.getElementById('volume').value);
+
   });
 
 }

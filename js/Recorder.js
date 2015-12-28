@@ -30,8 +30,8 @@ function Recorder(){
 
     }
 
-    this.gap = function(gapp){
-      var gap = downTime[gapp] - upTime;
+    this.gap = function(timeGap){
+      var gap = downTime[timeGap] - upTime;
       recordedSong.push({keyCode: null, frequency: 0, time: gap });
 
 
