@@ -11,8 +11,12 @@ function PlayKeyBoard() {
   var playButton = document.getElementById("playRecorded");
   var visual = new AudioVisualizer();
   var bgAudio = new AudioInBackground();
+  var learn = new LearnPiano();
   var timer = null;
   var drum = false;
+  var timeoutTime = 2000;
+  var keyPressed = null;
+  var tempKeyCode = null;
   this.init = function() {
   try {
     // Fix up for prefixing
@@ -59,15 +63,7 @@ function PlayKeyBoard() {
 
   this.playNote = function(event) {
     console.log(timer,'timer');
-
-    // if(timer != null){
-      // clearTimeout(timer);
-      // notesByKeyCode[keyCode].key.sound.stop();
-
-    // }
-// 
-      // notesByKeyCode[keyCode].key.sound.stop();
-
+    keyPressed = true;
 
     var keyCode = event.keyCode;
 
@@ -84,14 +80,27 @@ function PlayKeyBoard() {
     if(recordFlag)
       recorder.record(keyCode,event.timeStamp,'down');
 
-  };
+    if(tempKeyCode != keyCode){
+      notesByKeyCode[tempKeyCode].key.sound.stop();
+      tempKeyCode = null;
+    }
 
+    else {
+      notesByKeyCode[tempKeyCode].key.sound.play();
+    }
+      
+
+   
+
+  };
+  
   this.endNote = function(event) {
     var keyCode = event.keyCode;
+    tempKeyCode = keyCode;
     timer = setTimeout(function(){
     notesByKeyCode[keyCode].key.sound.stop();
 
-    },20);
+    },timeoutTime);
     
     newKey.inActiveKey(notesByKeyCode[keyCode].noteName);
     notesByKeyCode[keyCode].counter = 0;
@@ -103,7 +112,7 @@ function PlayKeyBoard() {
       recorder.record(keyCode,event.timeStamp,'up');
 
     visual.updateVisuals('up', keyCode);
-    keyPressed = 0;
+    keyPressed = false;
 
 
 
@@ -132,7 +141,7 @@ function PlayKeyBoard() {
       playing++;
       if(recordedSong.length != playing)
       that.playRecorded();
-    }, recordedSong[playing].time);
+    }, recordedSong[playing].time+200);
       
   }
 
@@ -147,7 +156,6 @@ function PlayKeyBoard() {
     }
 
     else if(recordCounter == 0){
-      console.log(recordCounter,'bhitra');
       that.filterRecordedMusic();
       playButton.className = 'record pause';
     }
@@ -170,6 +178,15 @@ function PlayKeyBoard() {
    
   });
 
+
+stopPlaying.addEventListener("click",function(){
+  // recordedSong = [];  
+  playing = recordedSong.length -1;
+  recordedSong[playing].key.sound.stop();
+  // recordCounter = 1;
+
+
+});
 
   drum1.addEventListener("click",function(){
     if(!drum){
@@ -228,6 +245,11 @@ function PlayKeyBoard() {
    bgAudio.volumeController(document.getElementById('volume').value);
 
   });
+
+  learnPiano.addEventListener("change",function(){
+    console.log(learnPiano.value,'value');
+    learn.guidePlaying(learnPiano.value);
+  })
 
 }
 

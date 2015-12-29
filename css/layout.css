@@ -117,6 +117,10 @@ canvas {
   /*background: red;*/
 }
 
+.drum-wrapper{
+  float: right;
+}
+
 .drum{
   width: 50px;
   text-align: center;
@@ -130,15 +134,24 @@ canvas {
 
 }
 
-.volume-controller{
-  clear: both;
-  float: right;
-  margin-top: 20px;
-}
-
 .drum.active{
   background: #111111;
   color: red;
+}
+
+.volume-controller{
+  clear: both;
+  float: right;
+}
+
+
+.learn-piano{
+  float: left;
+  padding-bottom: 50px;
+}
+
+select{
+  background: #222222;
 }
 
 .key-container{

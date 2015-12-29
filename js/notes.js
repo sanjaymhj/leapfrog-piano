@@ -120,3 +120,6 @@ var freqData = {
 
 
 var recordedSong = [];
+
+
+var twinkleTwinkle = [{keyCode: 71, duration: 261},{keyCode: 72, duration: 261},{keyCode: 71, duration: 261},{keyCode: 72, duration: 261},]
