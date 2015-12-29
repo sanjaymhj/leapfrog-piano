@@ -19,7 +19,7 @@ var notesByKeyCode = {
   77:{ noteName:'f6',  frequency: 1396.91, keyName: 'm', counter: 0},
   188:{ noteName:'g6',  frequency: 1567.98, keyName: ',', counter: 0},
   190:{ noteName:'a6',  frequency: 1760.00, keyName: '.', counter: 0},
-  190:{ noteName:'b6',  frequency: 1975.53, keyName: '.', counter: 0},
+  32:{ noteName:'b6',  frequency: 1975.53, keyName: '.', counter: 0},
   81: { noteName: 'c4#', frequency: 277.18, keyName: 'q', counter: 0},
   87: { noteName: 'd4#', frequency: 311.13, keyName: 'w', counter: 0},
   69: { noteName: 'f4#', frequency: 369.99, keyName: 'e', counter: 0},

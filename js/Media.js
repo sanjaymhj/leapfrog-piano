@@ -25,7 +25,7 @@ Media.prototype.play = function() {
     this.pressed = true;
     var attack = 10,
     // gainValue = 10000;
-    decay = 3000,
+    decay = 2000,
     gainNode = this.context.createGain ? this.context.createGain() : this.context.createGainNode();
 
     this.osc.connect(gainNode);

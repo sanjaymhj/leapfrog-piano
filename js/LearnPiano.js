@@ -25,8 +25,6 @@ function LearnPiano(){
 
         clearInterval(intervalId);
 
-
-
       }
 
 
