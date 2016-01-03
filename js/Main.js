@@ -12,9 +12,6 @@ function Main() {
   for(var i = 0; i<Object.keys(data.noteList).length; i++){
     newKeys.createNewKeys(data.noteList[i].name,data.noteList[i].notePitch, i);
 
-  }
-  
- 
-}  
+  }  
  
 }
