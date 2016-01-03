@@ -7,6 +7,7 @@ function Recorder(audioContext){
 
   var recordFlag=false;
   var recordCounter = 0;
+  var playRecordedCounter = 0;
 
   var playing;
   var recordedSong = [];
@@ -89,6 +90,8 @@ function Recorder(audioContext){
 
   }
 
+
+
   this.playRecorded = function(){
     // playing = 0;
     recordedSong[playing].key.sound.play();
@@ -98,12 +101,33 @@ function Recorder(audioContext){
 
       playing = playing + 2;
 
+      if(!recordedSong[playing + 1]){
+        playRecorded.className = 'record play';
+        playRecordedCounter = 0;
+        
+      }
+
       if(recordedSong.length != playing)
         that.playRecorded();
 
     }, recordedSong[playing].time + recordedSong[playing + 1].time);
+
       
   }
+
+
+  this.stopPlaying = function(){
+    context.suspend();
+    playRecordedCounter = 3 ;
+  }
+
+  this.resumePlaying = function(){
+    console.log('resume' );
+    context.resume();
+    that.playRecordedMusic();
+  }
+
+
 
 
   startRecording.addEventListener("click",function(){
@@ -128,24 +152,41 @@ function Recorder(audioContext){
 
 
   playRecorded.addEventListener("click",function(){
+    console.log('playRecordedCounter',playRecordedCounter);
     if(recordedSong.length == 0){
       window.alert("Please Record Audio First");
 
     }
 
-    else if(recordCounter == 0){
+    if(playRecordedCounter == 0){
       that.filterRecordedMusic();
 
       playRecorded.className = 'record pause';
-
+      playRecordedCounter++;
     }
+
+    else{
+      // that.pausePlaying();
+      
+      playRecorded.className = 'record play';
+
+      // playRecorded.className = 'record pause';
+      playRecordedCounter = 0;
+    }
+
+    // else{
+    //   that.resumePlaying();
+
+    // }
+
+
 
   });
 
   stopPlaying.addEventListener("click",function(){
-  playing = recordedSong.length -1;
+    playing = recordedSong.length -1;
 
-  recordedSong[playing].key.sound.stop();
+    recordedSong[playing].key.sound.stop();
 
   });
 

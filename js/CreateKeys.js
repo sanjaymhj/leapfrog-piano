@@ -3,7 +3,7 @@ function CreateKeys(){
   var octaveNum = 0;
   var octaveClass;
 
-  that = this;
+  var that = this;
 
   this.createNewKeys = function(noteName, keyType, i){
     octaveClass = Math.floor(i/7);

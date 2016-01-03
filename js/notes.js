@@ -5,7 +5,7 @@ function Notes(){
   var timer;
   
   var state;
-  var keyPressed = null;
+  // var keyPressed = null;
   
   var keyCode;
   var tempKeyCode = null;
@@ -17,6 +17,7 @@ function Notes(){
   try {
     window.AudioContext = window.AudioContext||window.webkitAudioContext;
     var audioContext = new AudioContext();
+  
   }
   catch(e) {
     alert('Web Audio API is not supported in this browser');
@@ -42,7 +43,7 @@ function Notes(){
   }
 
  this.playNote = function(event) {
-  keyPressed = true;
+  // keyPressed = true;
 
   keyCode = event.keyCode;
   
@@ -54,21 +55,33 @@ function Notes(){
   }
   visual.updateVisuals('down',keyCode);
 
-  if(tempKeyCode != keyCode){
-    data.notesByKeyCode[tempKeyCode].key.sound.stop();
-    // tempKeyCode = null;
+  if(tempKeyCode){
+
+    if(tempKeyCode != keyCode){
+      data.notesByKeyCode[tempKeyCode].key.sound.stop();
+      // tempKeyCode = null;
+      timeoutTime = 1500;
+
+      
+    }
+
+    else{
+      timeoutTime = 100;
+      data.notesByKeyCode[tempKeyCode].key.sound.stop();
+      data.notesByKeyCode[tempKeyCode].key.sound.play();
+      
+    }
 
   }
 
-  else {
-    data.notesByKeyCode[tempKeyCode].key.sound.play();
-  }
   
-
   if(recorder.recordFlag())
     recorder.record(keyCode, event.timeStamp,'down');
 
+
+
   }
+
   
   this.endNote = function(event) {
     var keyCode = event.keyCode;
@@ -91,7 +104,7 @@ function Notes(){
     if(recorder.recordFlag())
       recorder.record(keyCode,event.timeStamp,'up');
     
-    keyPressed = false;
+    // keyPressed = false;
 
 
 

@@ -8,12 +8,13 @@ function LearnPiano(){
   var key = new CreateKeys();
   var data = new Data();
 
-  that = this;
+  var that = this;
 
   this.guidePlaying = function(songName){
     if(songName == 'twinkleTwinkle')
       song = data.twinkleTwinkle;
 
+    keyGuide.innerHTML = 'Loading ...'
     setTimeout(function(){
       intervalId = setInterval(function(){
       if(i>0)
@@ -23,7 +24,7 @@ function LearnPiano(){
 
       key.activeKey(keyName);
       keyGuide.innerHTML = 'Press  ' + data.notesByKeyCode[song[i].keyCode].keyName 
-        + ' ('+data.notesByKeyCode[song[i].keyCode].noteName+')';
+        + ' (' + data.notesByKeyCode[song[i].keyCode].noteName + ')';
 
       i++;
 
@@ -41,5 +42,12 @@ function LearnPiano(){
     }, 2000);
     
   }
+
+  learnPiano.addEventListener("change",function(){
+    console.log(learnPiano.value,'value');
+    that.guidePlaying(learnPiano.value);
+
+  });
+
 
 }
