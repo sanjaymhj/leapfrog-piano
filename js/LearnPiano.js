@@ -1,26 +1,34 @@
 function LearnPiano(){
   var intervalId;
   var i = 0;
+
   var song = [];
   var keyName = null;
+
   var key = new CreateKeys();
-	this.guidePlaying = function(songName){
+  var data = new Data();
+
+  that = this;
+
+  this.guidePlaying = function(songName){
     if(songName == 'twinkleTwinkle')
-      song = twinkleTwinkle;
-    console.log(song);
+      song = data.twinkleTwinkle;
+
     setTimeout(function(){
       intervalId = setInterval(function(){
-
       if(i>0)
         key.inActiveKey(keyName);
 
-      keyName = notesByKeyCode[song[i].keyCode].noteName;
+      keyName = data.notesByKeyCode[song[i].keyCode].noteName;
 
       key.activeKey(keyName);
-      console.log(song.length,'length');
+      keyGuide.innerHTML = 'Press  ' + data.notesByKeyCode[song[i].keyCode].keyName 
+        + ' ('+data.notesByKeyCode[song[i].keyCode].noteName+')';
+
       i++;
 
       if(song.length <= i){
+        keyGuide.style.display = 'none';
         key.inActiveKey(keyName);
 
         clearInterval(intervalId);
@@ -30,8 +38,8 @@ function LearnPiano(){
 
     },song[i].duration);
 
-    }, 5000);
+    }, 2000);
     
-	}
+  }
 
 }

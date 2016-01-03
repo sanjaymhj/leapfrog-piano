@@ -4,7 +4,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/layout.css">
-	
+	<meta charset="UTF-8">
 </head>
 
 <body>
@@ -40,11 +40,11 @@
 				 	<select id = "learnPiano">
 						<option value="" disabled selected style="display:none;">Learn To Play Piano</option>
 						<option value="twinkleTwinkle">Twinkle Twinkle</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
 					</select>
 
 				</div>
+
+				<div class="key-guide" id="keyGuide">	</div>
 
 				<div class="drum-wrapper">
 					<div class = "drum" id = "drum3">Drum 3</div>
@@ -71,21 +71,22 @@
 
 	</div>
 
+	<script type="text/javascript" src="js/Main.js"></script>
 	<script type="text/javascript" src="js/Media.js"></script>
-	<script type="text/javascript" src="js/PlayKeyBoard.js"></script>
-	<script type="text/javascript" src="js/notes.js"></script>
+	<script type="text/javascript" src="js/Data.js"></script>
 	<script type="text/javascript" src="js/CreateKeys.js"></script>
 	<script type="text/javascript" src="js/AudioVisualizer.js"></script>
 	<script type="text/javascript" src="js/Recorder.js"></script>
 	<script type="text/javascript" src="js/AudioInBackground.js"></script>
 	<script type="text/javascript" src="js/CreateAudioElement.js"></script>
 	<script type="text/javascript" src="js/LearnPiano.js"></script>
+	<script type="text/javascript" src="js/Notes.js"></script>
 
 
 	
 
 	<script type="text/javascript">
-		new PlayKeyBoard();
+		new Main();
 	</script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 function AudioInBackground(){
   var audioElement = null;
+  var drum = false;
+
   that = this;
 
   this.loadAudio = function(audioSource){
@@ -9,8 +11,6 @@ function AudioInBackground(){
   }
 
   this.playAudio = function(){
-
-    document.getElementById(drum1)
     audioElement.play();
 
     audioElement.addEventListener('ended', function() {
@@ -36,6 +36,6 @@ function AudioInBackground(){
 
     console.log(volume);
   }
-
+  
   
 }
