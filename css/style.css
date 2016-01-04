@@ -52,3 +52,8 @@ select{
   background: #636363;
 
 }
+
+.keyName{
+  width: 100%;
+  color: green;
+}

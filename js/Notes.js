@@ -1,7 +1,6 @@
 function Notes(){
-
   var counter = 0;
-  var timeoutTime = 2000;
+  // var timeoutTime = 2000;
   var timer;
   
   var state;
@@ -44,32 +43,40 @@ function Notes(){
 
  this.playNote = function(event) {
   // keyPressed = true;
-
   keyCode = event.keyCode;
-  
-  data.notesByKeyCode[keyCode].key.sound.play();
+  var note = data.notesByKeyCode[keyCode];
+  var tempNote = data.notesByKeyCode[tempKeyCode];
 
-  if(data.notesByKeyCode[keyCode].counter == 0){
-    newKey.activeKey(data.notesByKeyCode[keyCode].noteName);
-    data.notesByKeyCode[keyCode].counter = 1;
+  keyGuide.style.display = 'block';
+  keyGuide.innerHTML = note.noteName;
+  
+  note.key.sound.play();
+
+  /* used to control the class name since a many classes with same name are added in long press*/
+  if(note.counter == 0){
+    newKey.activeKey(note.noteName);
+
+    note.counter = 1;
+  
   }
+
   visual.updateVisuals('down',keyCode);
 
   if(tempKeyCode){
 
     if(tempKeyCode != keyCode){
-      data.notesByKeyCode[tempKeyCode].key.sound.stop();
+      tempNote.key.sound.stop();
       // tempKeyCode = null;
-      timeoutTime = 1500;
+      // timeoutTime = 1500;
 
       
     }
 
     else{
-      timeoutTime = 100;
+      // timeoutTime = 100;
 
-      data.notesByKeyCode[tempKeyCode].key.sound.stop();
-      data.notesByKeyCode[tempKeyCode].key.sound.play();
+      tempNote.key.sound.stop();
+      tempNote.key.sound.play();
       
       
     }
@@ -77,6 +84,7 @@ function Notes(){
   }
 
   
+  /* Starts recording only if record flag is true*/
   if(recorder.recordFlag())
     recorder.record(keyCode, event.timeStamp,'down');
 
@@ -87,16 +95,18 @@ function Notes(){
   
   this.endNote = function(event) {
     var keyCode = event.keyCode;
+
+    var note = data.notesByKeyCode[keyCode];
+
     tempKeyCode = keyCode;
+    setTimeout(function(){
+       keyGuide.style.display = 'none';
 
-    timer = setTimeout(function(){
-      data.notesByKeyCode[keyCode].key.sound.stop();
-
-    },timeoutTime);
+    },3000);
     
-    newKey.inActiveKey(data.notesByKeyCode[keyCode].noteName);
+    newKey.inActiveKey(note.noteName);
   
-    data.notesByKeyCode[keyCode].counter = 0;
+    note.counter = 0;
 
     state = true;
   
@@ -107,8 +117,6 @@ function Notes(){
       recorder.record(keyCode,event.timeStamp,'up');
     
     // keyPressed = false;
-
-
 
   };
 

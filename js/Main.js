@@ -11,7 +11,8 @@ function Main() {
 
   /* Creates number of piano keys equal to available data of keys */
   for(var i = 0; i < Object.keys(data.noteList).length; i++){
-    newKeys.createNewKeys(data.noteList[i].name, data.noteList[i].notePitch, i);
+    var noteList = data.noteList[i];
+    newKeys.createNewKeys(noteList.name, noteList.notePitch, i, noteList.keyName);
 
   }  
  
