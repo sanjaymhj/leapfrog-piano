@@ -71,38 +71,7 @@ canvas {
 
 }
 
-.record.active{
-  background-image: url("../images/active-record.png");
-  background-repeat: no-repeat;
 
-}
-
-.record.in-active{
-  background-image: url("../images/inactive-record.png");
-  background-repeat: no-repeat;
-
-}
-
-
-
-.record.play{
-  background-image: url("../images/play-button.png");
-  background-repeat: no-repeat;
-
-}
-
-.record.pause{
-  background-image: url("../images/pause-button.png");
-  background-repeat: no-repeat;
-
-}
-
-
-.record.stop{
-  background-image: url("../images/stop-button.png");
-  background-repeat: no-repeat;
-
-}
 
 
 .header-base{
@@ -136,14 +105,12 @@ canvas {
   border-radius: 5px;
   border: 2px solid black;
   margin-right: 2px;
+  color: #e4e4e5;
+  font-size: 16px;
 
 }
 
-.drum.active{
-  background: #111111;
-  color: red;
 
-}
 
 .volume-controller{
   clear: both;
@@ -156,10 +123,6 @@ canvas {
   padding-bottom: 50px;
 }
 
-select{
-  background: #222222;
-
-}
 
 .key-guide{
   float: left;
@@ -202,16 +165,6 @@ select{
 }
 
 
-.key.active{
-  background: #a6a7a7;
-
-}
-
-.key.high-notes.active{
-  background: #1b1c1c;
-
-}
-
 .key.high-notes{
   background: black;
   width: 28px;
@@ -220,6 +173,5 @@ select{
   position: absolute;
   font-size: 17px;  
   line-height: 100px;
-  color: #ffffff;
+  color: #e4e4e5;
 }
-0
