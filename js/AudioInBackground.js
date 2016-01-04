@@ -16,7 +16,7 @@ function AudioInBackground(){
     /* Plays the music in a loop */
     audioElement.addEventListener('ended', function() {
     currentTime = 0;
-    console.log('finished');
+    
     audioElement.play();
   }, false);
 

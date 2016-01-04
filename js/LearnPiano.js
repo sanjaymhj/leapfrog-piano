@@ -23,12 +23,15 @@ function LearnPiano(){
       if(i>0)
         key.inActiveKey(keyName);
 
-      keyName = data.notesByKeyCode[song[i].keyCode].noteName;
+      var notesByKeyCode = data.notesByKeyCode[song[i].keyCode];
+
+      console.log(notesByKeyCode);
+      keyName = notesByKeyCode.noteName;
 
       key.activeKey(keyName);
    
-      keyGuide.innerHTML = 'Press  ' + data.notesByKeyCode[song[i].keyCode].keyName 
-        + ' (' + data.notesByKeyCode[song[i].keyCode].noteName + ')';
+      keyGuide.innerHTML = 'Press  ' + notesByKeyCode.keyName 
+        + ' (' + notesByKeyCode.noteName + ')';
 
       i++;
 

@@ -9,7 +9,7 @@ function CreateKeys(){
      sharp notes here represented as high. 
    */
 
-  this.createNewKeys = function(noteName, keyType, i){
+  this.createNewKeys = function(noteName, keyType, i, keyName){
     octaveClass = Math.floor( i / 7 );
     var keyContainer = document.getElementById('octave'+octaveClass);
 
@@ -49,12 +49,12 @@ function CreateKeys(){
      
 
     else
-      this.element.className = 'key';
+    this.element.className = 'key';
+    this.keyName = document.createElement('div');
 
     this.element.id = noteName;
-    this.element.innerHTML = noteName;
+    this.element.innerHTML = keyName; 
 
-    
     keyContainer.appendChild(this.element);
 
   }
