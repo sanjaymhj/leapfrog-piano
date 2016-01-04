@@ -67,8 +67,10 @@ function Notes(){
 
     else{
       timeoutTime = 100;
+
       data.notesByKeyCode[tempKeyCode].key.sound.stop();
       data.notesByKeyCode[tempKeyCode].key.sound.play();
+      
       
     }
 
