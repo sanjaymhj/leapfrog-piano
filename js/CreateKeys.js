@@ -5,8 +5,12 @@ function CreateKeys(){
 
   var that = this;
 
+  /* Create New Keys and place them according to the 'Octave Class and type like 
+     sharp notes here represented as high. 
+   */
+
   this.createNewKeys = function(noteName, keyType, i){
-    octaveClass = Math.floor(i/7);
+    octaveClass = Math.floor( i / 7 );
     var keyContainer = document.getElementById('octave'+octaveClass);
 
     this.element = document.createElement('div');
@@ -21,7 +25,7 @@ function CreateKeys(){
         this.element.style.left = 30;
 
 
-      else if(noteName == 'd4#' || noteName == 'd5#' || noteName == 'd6#'  )
+      else if(noteName == 'd4#' || noteName == 'd5#' || noteName == 'd6#')
         this.element.style.left = 30+46;
 
 
@@ -63,6 +67,7 @@ function CreateKeys(){
     else
       document.getElementById(noteName).className = keyClass + ' active';
   }
+
 
   this.inActiveKey = function(noteName){
     var keyClass = document.getElementById(noteName).className;

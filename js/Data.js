@@ -1,4 +1,6 @@
 function Data(){
+
+  /* used for generating sound on respective key press */
   this.notesByKeyCode = {
   65: { noteName: 'c4', frequency: 261.6, keyName: 'a', counter: 0},
   83: { noteName: 'd4', frequency: 293.7, keyName: 's', counter: 0},
@@ -39,6 +41,7 @@ function Data(){
 
 };
 
+/* Used for creating  'Piano Keys' */
 this.noteList={
   0:{name:'c4', notePitch: 'low'},
   1:{name:'d4', notePitch: 'low'},
@@ -79,6 +82,7 @@ this.noteList={
 
 };
 
+/* Used for visualizer */
 this.freqData = {
   0:{ freqValue : 90}, 1:{ freqValue : 20}, 2:{ freqValue : 80}, 3:{ freqValue : 40}, 
   4:{ freqValue : 80}, 5:{ freqValue : 60}, 6:{ freqValue : 70}, 7:{ freqValue : 80},
@@ -99,6 +103,7 @@ this.freqData = {
  };
 
 
+/* Used for learning piano*/
 this.twinkleTwinkle = [{keyCode: 71, duration: 2000},{keyCode: 72, duration: 2000},
   {keyCode: 71, duration: 1000},{keyCode: 72, duration: 2000},]
 

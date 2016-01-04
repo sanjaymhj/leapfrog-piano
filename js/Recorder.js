@@ -47,6 +47,8 @@ function Recorder(audioContext){
 
   }
 
+
+  /* Calculates the time interval between two key press. */
   this.gap = function(gapp){
       var gap = downTime[gapp] - upTime;
       recordedSong.push({keyCode: null, frequency: 0, time: gap });
@@ -58,7 +60,7 @@ function Recorder(audioContext){
     return recordFlag;
   }
 
-  
+  /* Removes the unwanted first element of recorded array. */
   this.filterRecordedMusic = function(){
 
     that.loadRecordedFrequency(recordedSong);
@@ -91,7 +93,6 @@ function Recorder(audioContext){
   }
 
 
-
   this.playRecorded = function(){
     // playing = 0;
     recordedSong[playing].key.sound.play();
@@ -118,12 +119,16 @@ function Recorder(audioContext){
 
   this.stopPlaying = function(){
     context.suspend();
-    playRecordedCounter = 3 ;
+
+    // playRecordedCounter = 3 ;
   }
+
 
   this.resumePlaying = function(){
     console.log('resume' );
     context.resume();
+
+
     that.playRecordedMusic();
   }
 
@@ -146,6 +151,7 @@ function Recorder(audioContext){
       startRecording.className = 'record in-active';
 
       recordCounter = 0;
+
     }
    
   });
@@ -162,26 +168,19 @@ function Recorder(audioContext){
       that.filterRecordedMusic();
 
       playRecorded.className = 'record pause';
+      
       playRecordedCounter++;
     }
 
-    else{
-      // that.pausePlaying();
-      
+    else{    
       playRecorded.className = 'record play';
 
-      // playRecorded.className = 'record pause';
       playRecordedCounter = 0;
     }
 
-    // else{
-    //   that.resumePlaying();
-
-    // }
-
-
 
   });
+
 
   stopPlaying.addEventListener("click",function(){
     playing = recordedSong.length -1;

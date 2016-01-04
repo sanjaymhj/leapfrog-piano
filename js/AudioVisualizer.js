@@ -7,6 +7,7 @@ function AudioVisualizer() {
 
   var data =new Data(); 
 
+  /* Draws the bars according to note played in canvas */
   this.updateVisuals = function(state, keyCode){
     if (!context){
     canvas = document.getElementById('analyser');
@@ -17,18 +18,21 @@ function AudioVisualizer() {
 
   var i = 0;
   var dec = 1;
+  
   var frequencyData;
+
   var divider = data.notesByKeyCode[keyCode].frequency/1200;
+  
   var interval = setInterval(function(){
-    for(j = 0; j<Object.keys(data.freqData).length; j++){
+    for(j = 0; j < Object.keys(data.freqData).length; j++){
       if(j%2 == 0){
         context.beginPath();
 
-        context.moveTo(j*spacing,canvasHeight);
+        context.moveTo(j * spacing, canvasHeight);
 
-        context.lineTo(barWidth+spacing*j, canvasHeight);
-        context.lineTo(spacing*j+barWidth, data.freqData[j].freqValue/divider - dec);
-        context.lineTo(spacing*j, data.freqData[j].freqValue/divider - dec);
+        context.lineTo(barWidth + spacing * j, canvasHeight);
+        context.lineTo(spacing * j + barWidth, data.freqData[j].freqValue / divider - dec);
+        context.lineTo(spacing * j, data.freqData[j].freqValue/divider - dec);
 
         context.closePath();
         

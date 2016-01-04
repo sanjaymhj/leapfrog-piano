@@ -10,11 +10,14 @@ function LearnPiano(){
 
   var that = this;
 
+  /* Loads the array according to song selected and change the property of key 
+     at the timing specified in the array*/
   this.guidePlaying = function(songName){
     if(songName == 'twinkleTwinkle')
       song = data.twinkleTwinkle;
 
     keyGuide.innerHTML = 'Loading ...'
+
     setTimeout(function(){
       intervalId = setInterval(function(){
       if(i>0)
@@ -23,6 +26,7 @@ function LearnPiano(){
       keyName = data.notesByKeyCode[song[i].keyCode].noteName;
 
       key.activeKey(keyName);
+   
       keyGuide.innerHTML = 'Press  ' + data.notesByKeyCode[song[i].keyCode].keyName 
         + ' (' + data.notesByKeyCode[song[i].keyCode].noteName + ')';
 
@@ -43,6 +47,7 @@ function LearnPiano(){
     
   }
 
+  /* Pass array to play according to the selection */
   learnPiano.addEventListener("change",function(){
     console.log(learnPiano.value,'value');
     that.guidePlaying(learnPiano.value);

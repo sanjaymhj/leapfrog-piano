@@ -13,6 +13,7 @@ function AudioInBackground(){
   this.playAudio = function(){
     audioElement.play();
 
+    /* Plays the music in a loop */
     audioElement.addEventListener('ended', function() {
     currentTime = 0;
     console.log('finished');
@@ -22,7 +23,7 @@ function AudioInBackground(){
 
   }
 
-  this.pauseAudio = function(){
+  this.stopAudio = function(){
     audioElement.pause();
     audioElement.currentTime = 0;
 
@@ -34,16 +35,10 @@ function AudioInBackground(){
     if(audioElement)
       audioElement.volume = volume;
 
-    console.log(volume);
   }
 
 
-  volume.addEventListener("change",function(){
-   that.volumeController(document.getElementById('volume').value);
-
-  });
-
-
+  /* Triggers play function in single click and stops in double click */
   drum1.addEventListener("click",function(){
     if(!drum){
       drum1.className = 'drum active';
@@ -54,7 +49,7 @@ function AudioInBackground(){
 
     else{
       drum1.className = 'drum';
-      that.pauseAudio();
+      that.stopAudio();
       drum = false;
     }
     
@@ -71,7 +66,7 @@ function AudioInBackground(){
 
     else{
       drum2.className = 'drum';
-      that.pauseAudio();
+      that.stopAudio();
       drum = false;
     }
 
@@ -87,10 +82,14 @@ function AudioInBackground(){
 
     else{
       drum3.className = 'drum';
-      that.pauseAudio();
+      that.stopAudio();
       drum = false;
     }
   });
   
   
+  volume.addEventListener("change",function(){
+    that.volumeController(document.getElementById('volume').value);
+
+  });
 }
