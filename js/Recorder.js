@@ -64,7 +64,7 @@ function Recorder(audioContext){
   this.filterRecordedMusic = function(){
 
     that.loadRecordedFrequency(recordedSong);
-    console.log(recordedSong[0].time);
+    // console.log(recordedSong[0].time);
 
     if(recordedSong[0].time >= 10000)
       recordedSong.splice(0, 1);
@@ -127,7 +127,7 @@ function Recorder(audioContext){
   }
 
   this.resumePlaying = function(){
-    console.log('resume' );
+    // console.log('resume' );
     context.resume();
     that.playRecordedMusic();
   }
@@ -157,7 +157,7 @@ function Recorder(audioContext){
 
 
   playRecorded.addEventListener("click",function(){
-    console.log('playRecordedCounter',playRecordedCounter);
+    // console.log('playRecordedCounter',playRecordedCounter);
     if(recordedSong.length == 0){
       window.alert("Please Record Audio First");
 

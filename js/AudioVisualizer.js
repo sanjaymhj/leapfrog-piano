@@ -24,7 +24,8 @@ function AudioVisualizer() {
   var divider = data.notesByKeyCode[keyCode].frequency/1200;
   
   var interval = setInterval(function(){
-        var grd=context.createLinearGradient(0,0,170,0);
+    var grd=context.createLinearGradient(0,0,170,0);
+
     for(j = 0; j < Object.keys(data.freqData).length; j++){
       var frequencyValue = data.freqData[j].freqValue;
       
