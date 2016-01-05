@@ -1,7 +1,8 @@
 function Media(frequency,audioContext) {
   this.context = audioContext;
 
-  /* Creates oscillator node. */
+  /* Creates oscillator node which is audio-processing module that causes 
+  a given frequency of wave to be created*/
   this.osc = this.context.createOscillator(); 
 
   /* Flag to indicate if sound is playing. */
@@ -30,7 +31,7 @@ Media.prototype.play = function() {
     this.pressed = true;
 
     /* Attack and decay time are time to reach to maximum volume & zero volume. */
-    var attack = 10, decay = 1500;
+    var attack = 10, decay = 2000;
 
     /* createGain creates a GainNode, which can be used to control the overall volume of the audio graph. */
     var gainNode = this.context.createGain ? this.context.createGain() : this.context.createGainNode();

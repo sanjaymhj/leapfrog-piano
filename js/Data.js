@@ -104,10 +104,21 @@ this.freqData = {
 
 
 /* Used for learning piano*/
-this.twinkleTwinkle = [{keyCode: 71, duration: 2000},{keyCode: 73, duration: 2000},
-  {keyCode: 71, duration: 1000},{keyCode: 73, duration: 2000},]
-
-
+this.happyBirthday = [
+  {keyCode: 89, duration: 1200},{keyCode: 89, duration: 1200},
+  {keyCode: 85, duration: 1200},{keyCode: 89, duration: 1200},
+  {keyCode: 79, duration: 1200},{keyCode: 57, duration: 1200},
+  {keyCode: 89, duration: 1000},{keyCode: 89, duration: 1200},
+  {keyCode: 85, duration: 1000},{keyCode: 89, duration: 1200},
+  {keyCode: 80, duration: 1000},{keyCode: 79, duration: 1000},
+  {keyCode: 89, duration: 1200},{keyCode: 89, duration: 1200},
+  {keyCode: 90, duration: 1200},{keyCode: 173, duration: 1200},
+  {keyCode: 79, duration: 1000},{keyCode: 57, duration: 1200},
+  {keyCode: 85, duration: 1000},{keyCode: 221, duration: 1200},
+  {keyCode: 221, duration: 1000},{keyCode: 173, duration: 1200},
+  {keyCode: 79, duration: 1000},{keyCode: 80, duration: 1200},
+  {keyCode: 79, duration: 1000},{keyCode: 89, duration: 2000},
+  {keyCode: 89, duration: 1000},{keyCode: 90, duration: 2000},
+  {keyCode: 79, duration: 1000},{keyCode: 90, duration: 2000}]
 
 }
-

@@ -1,6 +1,6 @@
 function Notes(){
   var counter = 0;
-  // var timeoutTime = 2000;
+  var timeoutTime = 2000;
   var timer;
   
   var state;
@@ -67,16 +67,20 @@ function Notes(){
     if(tempKeyCode != keyCode){
       tempNote.key.sound.stop();
       // tempKeyCode = null;
-      // timeoutTime = 1500;
+      timeoutTime = 1500;
 
       
     }
 
     else{
-      // timeoutTime = 100;
+      // timeoutTime = 10;
 
       tempNote.key.sound.stop();
+      
+      setTimeout(function(){
       tempNote.key.sound.play();
+
+    },50);
       
       
     }
@@ -99,10 +103,11 @@ function Notes(){
     var note = data.notesByKeyCode[keyCode];
 
     tempKeyCode = keyCode;
+
     setTimeout(function(){
        keyGuide.style.display = 'none';
-
-    },3000);
+       // note.key.sound.stop();
+    },timeoutTime);
     
     newKey.inActiveKey(note.noteName);
   
