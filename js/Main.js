@@ -7,8 +7,6 @@ function Main() {
   
   var drum = false;
  
-  var that = this;
-
   /* Creates number of piano keys equal to available data of keys */
   for(var i = 0; i < Object.keys(data.noteList).length; i++){
     var noteList = data.noteList[i];
