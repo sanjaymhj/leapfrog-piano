@@ -118,6 +118,7 @@ this.happyBirthday = [
   {keyCode: 221, duration: 1000},{keyCode: 173, duration: 1200},
   {keyCode: 79, duration: 1000},{keyCode: 80, duration: 1200},
   {keyCode: 79, duration: 1000},{keyCode: 89, duration: 2000},
-  {keyCode: 89, duration: 1000},{keyCode: 90, duration: 2000}]
+  {keyCode: 89, duration: 1000},{keyCode: 90, duration: 2000},
+  {keyCode: 79, duration: 1000},{keyCode: 90, duration: 2000}]
 
 }
