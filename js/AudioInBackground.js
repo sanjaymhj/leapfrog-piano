@@ -59,7 +59,7 @@ function AudioInBackground(){
   drum2.addEventListener("click",function(){
     if(!drum){
       drum2.className = 'drum active';
-      that.loadAudio('music/wipeout161.mp3');
+      that.loadAudio('music/zoom173.mp3');
       that.playAudio();
       drum = true;
     }
@@ -75,7 +75,7 @@ function AudioInBackground(){
   drum3.addEventListener("click",function(){
     if(!drum){
       drum3.className = 'drum active';
-      that.loadAudio('music/wipeout161.mp3');
+      that.loadAudio('music/foresty.mp3');
       that.playAudio();
       drum = true;
     }
