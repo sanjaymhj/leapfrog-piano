@@ -13,8 +13,8 @@ function LearnPiano(){
   /* Loads the array according to song selected and change the property of key 
      at the timing specified in the array*/
   this.guidePlaying = function(songName){
-    if(songName == 'twinkleTwinkle')
-      song = data.twinkleTwinkle;
+    if(songName == 'happyBirthday')
+      song = data.happyBirthday;
 
     keyGuide.innerHTML = 'Loading ...'
 
