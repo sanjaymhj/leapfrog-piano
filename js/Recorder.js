@@ -96,7 +96,7 @@ function Recorder(audioContext){
 
   this.playRecorded = function(){
     // playing = 0;
-    console.log(recordedSong);
+    // console.log(recordedSo?ng);
     var recorded = recordedSong[playing];
     recorded.key.sound.play();
     
