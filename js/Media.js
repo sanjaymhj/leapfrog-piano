@@ -31,7 +31,7 @@ Media.prototype.play = function() {
     this.pressed = true;
 
     /* Attack and decay time are time to reach to maximum volume & zero volume. */
-    var attack = 10, decay = 2000;
+    var attack = 10, decay = 1000;
 
     /* createGain creates a GainNode, which can be used to control the overall volume of the audio graph. */
     var gainNode = this.context.createGain ? this.context.createGain() : this.context.createGainNode();
