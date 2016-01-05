@@ -25,7 +25,7 @@ function LearnPiano(){
 
       var notesByKeyCode = data.notesByKeyCode[song[i].keyCode];
 
-      console.log(notesByKeyCode);
+      // console.log(notesByKeyCode);
       keyName = notesByKeyCode.noteName;
 
       key.activeKey(keyName);
@@ -52,7 +52,7 @@ function LearnPiano(){
 
   /* Pass array to play according to the selection */
   learnPiano.addEventListener("change",function(){
-    console.log(learnPiano.value,'value');
+    // console.log(learnPiano.value,'value');
     that.guidePlaying(learnPiano.value);
 
   });
