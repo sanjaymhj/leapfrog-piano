@@ -46,16 +46,10 @@ function LearnPiano(){
   }
 
   /* Pass array to play according to the selection */
-  // learnPiano.addEventListener("change",function(){
-  //   // console.log(learnPiano.value,'value');
-  //   that.guidePlaying(learnPiano.value);
-  //
-  // });
-  // switch (expression) {
-  //   case expression:
-  //
-  //     break;
-  //   default:
-  //
-  // }
+  learnPiano.addEventListener("change",function(){
+    // console.log(learnPiano.value,'value');
+    that.guidePlaying(learnPiano.value);
+
+  });
+
 }

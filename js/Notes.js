@@ -1,4 +1,4 @@
-function Notes(){
+function Notes() {
   var counter = 0;
   var timeoutTime = 2000;
   var timer;
@@ -42,11 +42,10 @@ function Notes(){
   // keyPressed = true;
   keyCode = event.keyCode;
   var note = data.notesByKeyCode[keyCode];
-  if note == null {
+  if (!note) {
     return
   }
   var tempNote = data.notesByKeyCode[tempKeyCode];
-  debugger
 
   keyGuide.style.display = 'block';
   keyGuide.innerHTML = note.noteName;
@@ -89,6 +88,9 @@ function Notes(){
     var keyCode = event.keyCode;
 
     var note = data.notesByKeyCode[keyCode];
+    if (!note) {
+      return
+    }
 
     tempKeyCode = keyCode;
 
