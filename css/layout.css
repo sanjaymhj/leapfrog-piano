@@ -5,8 +5,8 @@
 
 }
 
-canvas { 
-  display: inline-block; 
+canvas {
+  display: inline-block;
   width: 100%;
   height: 100%;
   border: 1px solid black;
@@ -18,7 +18,7 @@ canvas {
 
 
 .piano-body{
-  max-width: 64em;
+  min-width: 64em;
   margin: 0 auto;
   background-image: url("../images/piano-background.png");
   background-repeat: repeat-x;
@@ -58,7 +58,7 @@ canvas {
 
 .media-options{
   float: left;
-  width: 20.8984375%; 
+  width: 20.8984375%;
   height: 100%;
 
 }
@@ -104,7 +104,6 @@ canvas {
   margin-right: 2px;
   color: #e4e4e5;
   font-size: 16px;
-
 }
 
 
@@ -112,13 +111,11 @@ canvas {
 .volume-controller{
   clear: both;
   float: right;
-
 }
 
 .learn-piano{
   float: left;
   padding-bottom: 50px;
-
 }
 
 
@@ -131,28 +128,53 @@ canvas {
   text-align: center;
   font-size: 50px;
   color: white;
-  background-color: transparent; 
-
+  background-color: transparent;
 }
 
 .key-container{
   width: 100%;
+  min-width: 1024px;
   height: 224px;
   font-size: 25px;
   color: black;
   text-align: center;
-
 }
 
 .key{
   background: #ededed;
-  float: left;
-  width: 46px;
+  /*float: left;*/
+  /*width: 4.32%;*/
+  width: 44px;
   height: 220px;
   border: 2px solid #090909;
   border-radius: 5px;
   line-height: 350px;
+  display: inline-block;
+}
 
+.high0 {
+  margin-left:36px;
+  margin-right: 10px;
+}
+
+.high1 {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+.high2 {
+  margin-left: 28px;
+  margin-right: 10px;
+}
+
+.high3 {
+  margin-left: 7px;
+  margin-right: 10px;
+}
+
+.high4 {
+  margin-left: 7px;
+  margin-right: 26px;
 }
 
 .octave{
@@ -160,22 +182,28 @@ canvas {
   float: left;
   height: 300px;
   position: relative;
-
 }
-
 
 .key.high-notes{
   background: black;
   width: 28px;
   height: 110px;
   border: 2px solid #090909;
-  position: absolute;
-  font-size: 17px;  
+  /*position: absolute;*/
+  font-size: 17px;
   line-height: 150px;
   color: #e4e4e5;
-
 }
 
+.highNoteKeyContainer {
+  position: absolute;
+  height:100px;
+  z-index:10;
+}
+.lowNoteKeyContainer {
+  position: absolute;
+
+}
 .check{
   display:inline;
   margin-top: -100px;

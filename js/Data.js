@@ -63,28 +63,30 @@ this.noteList={
   17:{name:'f6', notePitch: 'low', keyName: 'n'},
   18:{name:'g6', notePitch: 'low', keyName: 'm'},
   19:{name:'a6', notePitch: 'low', keyName: ','},
-  20:{name:'b6', notePitch: 'low', keyName: '.'},
-  21:{name:'c4#', notePitch: 'high', keyName: '2'},
-  22:{name:'d4#', notePitch: 'high', keyName: '3'},
-  23:{name:'f4#', notePitch: 'high', keyName: '5'},
-  24:{name:'g4#', notePitch: 'high', keyName: '6'},
-  25:{name:'a4#', notePitch: 'high', keyName: '7'},
-  26:{name:'c5#', notePitch: 'high', keyName: '9'},
-  27:{name:'d5#', notePitch: 'high', keyName: '0'},
-  28:{name:'f5#', notePitch: 'high', keyName: '-'},
-  29:{name:'g5#', notePitch: 'high', keyName: '='},
-  30:{name:'a5#', notePitch: 'high', keyName: 's'},
-  31:{name:'c6#', notePitch: 'high', keyName: 'f'},
-  32:{name:'d6#', notePitch: 'high', keyName: 'g'},
-  33:{name:'f6#', notePitch: 'high', keyName: 'j'},
-  34:{name:'g6#', notePitch: 'high', keyName: 'k'},
-  35:{name:'a6#', notePitch: 'high', keyName: 'l'}
-
+  20:{name:'b6', notePitch: 'low', keyName: '.'}
 };
+
+this.highNotesList = {
+  0:{name:'c4#', notePitch: 'high', keyName: '2'},
+  1:{name:'d4#', notePitch: 'high', keyName: '3'},
+  2:{name:'f4#', notePitch: 'high', keyName: '5'},
+  3:{name:'g4#', notePitch: 'high', keyName: '6'},
+  4:{name:'a4#', notePitch: 'high', keyName: '7'},
+  5:{name:'c5#', notePitch: 'high', keyName: '9'},
+  6:{name:'d5#', notePitch: 'high', keyName: '0'},
+  7:{name:'f5#', notePitch: 'high', keyName: '-'},
+  8:{name:'g5#', notePitch: 'high', keyName: '='},
+  9:{name:'a5#', notePitch: 'high', keyName: 's'},
+  10:{name:'c6#', notePitch: 'high', keyName: 'f'},
+  11:{name:'d6#', notePitch: 'high', keyName: 'g'},
+  12:{name:'f6#', notePitch: 'high', keyName: 'j'},
+  13:{name:'g6#', notePitch: 'high', keyName: 'k'},
+  14:{name:'a6#', notePitch: 'high', keyName: 'l'}
+}
 
 /* Used for visualizer */
 this.freqData = {
-  0:{ freqValue : 90}, 1:{ freqValue : 20}, 2:{ freqValue : 80}, 3:{ freqValue : 40}, 
+  0:{ freqValue : 90}, 1:{ freqValue : 20}, 2:{ freqValue : 80}, 3:{ freqValue : 40},
   4:{ freqValue : 80}, 5:{ freqValue : 60}, 6:{ freqValue : 70}, 7:{ freqValue : 80},
   8:{ freqValue : 70}, 9:{ freqValue : 60}, 10:{ freqValue : 50}, 11:{ freqValue : 40},
   12:{ freqValue : 60}, 13:{ freqValue : 6}, 14:{ freqValue : 60}, 15:{ freqValue : 56},

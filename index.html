@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>piano</title>
+	<title>PianoJS</title>
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/layout.css">
@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	
+
 	<div class="main">
 
 		<div class="piano-body " >
@@ -37,12 +37,10 @@
 			<div class="music clearfix">
 
 				<div class="learn-piano">
-
 				 	<select id = "learnPiano">
 						<option value="" disabled selected style="display:none;">Learn To Play Piano</option>
 						<option value="happyBirthday">Happy Birthday</option>
 					</select>
-
 				</div>
 
 				<div class="key-guide" id="keyGuide">	</div>
@@ -59,13 +57,12 @@
 
 			</div>
 
-
 			<div class="key-container" id="keyContainer">
-
-				<div class="octave" id="octave0"></div>
-				<div class="octave" id="octave1" ></div>
-				<div class="octave" id="octave2"></div>
-
+				<div class="highNoteKeyContainer" id = "highNoteKeyContainer"></div>
+				<div class="lowNoteKeyContainer" id = "lowNoteKeyContainer"></div>
+				<!-- <div class="octave" id="octave0"></div> -->
+				<!-- <div class="octave" id="octave1" ></div> -->
+				<!-- <div class="octave" id="octave2"></div> -->
 			</div>
 
 		</div>
@@ -83,11 +80,10 @@
 	<script type="text/javascript" src="js/Notes.js"></script>
 
 
-	
+
 
 	<script type="text/javascript">
 		new Main();
 	</script>
 </body>
 </html>
-

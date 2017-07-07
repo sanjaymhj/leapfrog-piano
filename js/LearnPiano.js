@@ -10,7 +10,7 @@ function LearnPiano(){
 
   var that = this;
 
-  /* Loads the array according to song selected and change the property of key 
+  /* Loads the array according to song selected and change the property of key
      at the timing specified in the array*/
   this.guidePlaying = function(songName){
     if(songName == 'happyBirthday')
@@ -20,42 +20,42 @@ function LearnPiano(){
 
     setTimeout(function(){
       intervalId = setInterval(function(){
-      if(i>0)
-        key.inActiveKey(keyName);
+        if(i>0)
+          key.inActiveKey(keyName);
 
-      var notesByKeyCode = data.notesByKeyCode[song[i].keyCode];
+        var notesByKeyCode = data.notesByKeyCode[song[i].keyCode];
 
-      // console.log(notesByKeyCode);
-      keyName = notesByKeyCode.noteName;
+        // console.log(notesByKeyCode);
+        keyName = notesByKeyCode.noteName;
 
-      key.activeKey(keyName);
-   
-      keyGuide.innerHTML = 'Press  ' + notesByKeyCode.keyName 
-        + ' (' + notesByKeyCode.noteName + ')';
+        key.activeKey(keyName);
 
-      i++;
+        keyGuide.innerHTML = 'Press  ' + notesByKeyCode.keyName + ' (' + notesByKeyCode.noteName + ')';
+        i++;
 
-      if(song.length <= i){
-        keyGuide.style.display = 'none';
-        key.inActiveKey(keyName);
+        if(song.length <= i){
+          keyGuide.style.display = 'none';
+          key.inActiveKey(keyName);
 
-        clearInterval(intervalId);
-
-      }
-
-
-    },song[i].duration);
+          clearInterval(intervalId);
+        }
+      },song[i].duration);
 
     }, 2000);
-    
+
   }
 
   /* Pass array to play according to the selection */
-  learnPiano.addEventListener("change",function(){
-    // console.log(learnPiano.value,'value');
-    that.guidePlaying(learnPiano.value);
-
-  });
-
-
+  // learnPiano.addEventListener("change",function(){
+  //   // console.log(learnPiano.value,'value');
+  //   that.guidePlaying(learnPiano.value);
+  //
+  // });
+  // switch (expression) {
+  //   case expression:
+  //
+  //     break;
+  //   default:
+  //
+  // }
 }
